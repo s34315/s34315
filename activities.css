@@ -1,0 +1,838 @@
+/* =========================================================
+   style.css
+   Portfolio — Chayanin Leelaprapassorn
+   Theme: Burapha / Gold / Charcoal Gray
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Prompt:wght@300;400;500&display=swap');
+
+:root {
+    --bg: #f4f2ed;
+    --surface: #ffffff;
+    --surface-soft: #ece9e1;
+    --text: #242424;
+    --muted: #6f6b63;
+    --line: #d8d2c5;
+    --gold: #b08a3c;
+    --gold-light: #d1b36a;
+    --dark: #252525;
+    --dark-2: #353535;
+
+    --max-width: 1180px;
+    --page-pad: clamp(20px, 5vw, 72px);
+    --section-space: clamp(80px, 10vw, 140px);
+    --radius: 4px;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+main,
+section,
+header,
+footer,
+div {
+    max-width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    min-height: 78px;
+    padding: 0 var(--page-pad);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: rgba(244, 242, 237, 0.96);
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    flex: 0 0 auto;
+
+    color: var(--dark);
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: clamp(18px, 3vw, 38px);
+}
+
+.navbar nav a {
+    position: relative;
+    padding: 8px 0;
+
+    color: #55514a;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.25s ease;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+    transition: width 0.25s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--gold);
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+/* =========================
+   COMMON LAYOUT
+========================= */
+
+.hero,
+.about,
+.experience,
+.activities,
+.goal {
+    width: min(100%, var(--max-width));
+    margin-inline: auto;
+    padding-inline: var(--page-pad);
+}
+
+.about,
+.experience,
+.activities {
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 52px;
+
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+}
+
+.section-heading span {
+    color: var(--gold);
+    font-family: "Kanit", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--dark);
+    font-family: "Kanit", sans-serif;
+    font-size: clamp(25px, 3vw, 38px);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: min(760px, calc(100vh - 78px));
+    padding-top: clamp(65px, 8vw, 110px);
+    padding-bottom: clamp(65px, 8vw, 110px);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    align-items: center;
+    gap: clamp(45px, 8vw, 110px);
+}
+
+.hero-text {
+    min-width: 0;
+}
+
+.subtitle {
+    margin-bottom: 18px;
+
+    color: var(--gold);
+    font-family: "Kanit", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-bottom: 28px;
+
+    color: var(--dark);
+    font-family: "Kanit", sans-serif;
+    font-size: clamp(46px, 6.2vw, 82px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.university {
+    margin-bottom: 3px;
+
+    color: var(--dark);
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 500;
+}
+
+.faculty,
+.major {
+    margin-bottom: 2px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.major {
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 9px 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+
+    background: var(--gold);
+    color: #fff;
+
+    font-family: "Prompt", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.button:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.hero-photo {
+    min-width: 0;
+}
+
+.photo-frame {
+    position: relative;
+    width: min(100%, 450px);
+    margin-inline: auto;
+    padding: 14px;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.photo-frame::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+
+    border: 1px solid var(--gold-light);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.photo-frame img {
+    position: relative;
+    z-index: 1;
+
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================
+   ABOUT / DIRECTION
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    gap: clamp(45px, 8vw, 100px);
+    align-items: start;
+}
+
+.about-text {
+    min-width: 0;
+}
+
+.about-text h3,
+.experience-text h3,
+.certificate-text h3 {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+    font-family: "Kanit", sans-serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.about-text p,
+.experience-text > p:not(.label),
+.certificate-text > p:not(.label) {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.personal-info {
+    min-width: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+}
+
+.info {
+    min-width: 0;
+    padding: 20px 16px 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.info:nth-child(even) {
+    padding-left: 16px;
+    border-left: 1px solid var(--line);
+}
+
+.info small {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--gold);
+    font-family: "Kanit", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.info p {
+    margin: 0;
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience-box,
+.certificate-box {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.experience-image,
+.certificate-image {
+    min-width: 0;
+    min-height: 100%;
+}
+
+.experience-image img,
+.certificate-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    object-fit: cover;
+}
+
+.experience-text,
+.certificate-text {
+    min-width: 0;
+    padding: clamp(30px, 5vw, 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.label {
+    margin-bottom: 12px;
+
+    color: var(--gold) !important;
+    font-family: "Kanit", sans-serif;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 2px;
+}
+
+.tag {
+    align-self: flex-start;
+
+    margin-top: 8px;
+    padding: 8px 13px;
+
+    background: var(--surface-soft);
+    border-left: 3px solid var(--gold);
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.certificate-box {
+    margin-top: 24px;
+}
+
+.certificate-image img {
+    min-height: 260px;
+    object-fit: contain;
+    background: #e9e6df;
+}
+
+/* =========================
+   ACTIVITIES
+========================= */
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.activity-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(40, 35, 25, 0.09);
+}
+
+.activity-image {
+    overflow: hidden;
+    background: var(--surface-soft);
+}
+
+.activity-image img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.activity-card:hover .activity-image img {
+    transform: scale(1.035);
+}
+
+.activity-content {
+    min-width: 0;
+    padding: 26px 26px 30px;
+}
+
+.activity-content > span {
+    color: var(--gold);
+    font-family: "Kanit", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.activity-content h3 {
+    margin: 10px 0 15px;
+
+    color: var(--dark);
+    font-family: "Kanit", sans-serif;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.activity-content p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================
+   FUTURE GOAL
+========================= */
+
+.goal {
+    width: 100%;
+    max-width: none;
+
+    padding-top: clamp(90px, 11vw, 150px);
+    padding-bottom: clamp(90px, 11vw, 150px);
+    padding-left: max(var(--page-pad), calc((100% - var(--max-width)) / 2 + var(--page-pad)));
+    padding-right: max(var(--page-pad), calc((100% - var(--max-width)) / 2 + var(--page-pad)));
+
+    background: var(--dark);
+    color: #fff;
+}
+
+.goal > p:first-child {
+    margin-bottom: 22px;
+
+    color: var(--gold-light);
+    font-family: "Kanit", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.goal h2 {
+    max-width: 850px;
+    margin-bottom: 35px;
+
+    color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 500;
+    line-height: 1.12;
+}
+
+.goal-line {
+    width: min(100%, 780px);
+    height: 1px;
+    margin-bottom: 35px;
+
+    background: #5d5a54;
+}
+
+.goal-text {
+    width: min(100%, 820px);
+    margin: 0;
+
+    color: #d8d5ce;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 100%;
+    padding: 70px var(--page-pad) 45px;
+
+    text-align: center;
+
+    background: #1c1c1c;
+    color: #aaa69d;
+    border-top: 1px solid #3b3a37;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+
+    color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+footer p {
+    margin: 3px 0;
+    font-size: 13px;
+}
+
+footer .copyright {
+    margin-top: 25px;
+    color: #77736b;
+    font-size: 11px;
+}
+
+/* =========================
+   RESPONSIVE — TABLET
+========================= */
+
+@media (max-width: 900px) {
+    :root {
+        --page-pad: 28px;
+    }
+
+    .navbar {
+        min-height: auto;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        align-items: flex-start;
+    }
+
+    .navbar nav {
+        gap: 12px 22px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.75fr);
+        gap: 40px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .activity-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================
+   RESPONSIVE — MOBILE
+========================= */
+
+@media (max-width: 680px) {
+    :root {
+        --page-pad: 20px;
+        --section-space: 78px;
+    }
+
+    .navbar {
+        display: block;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .navbar nav {
+        justify-content: flex-start;
+        gap: 4px 18px;
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 65px;
+        padding-bottom: 75px;
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 13vw, 62px);
+    }
+
+    .hero-photo {
+        order: 2;
+    }
+
+    .photo-frame {
+        width: min(100%, 390px);
+    }
+
+    .section-heading {
+        margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .personal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .info,
+    .info:nth-child(even) {
+        padding: 18px 0;
+        border-left: 0;
+    }
+
+    .experience-box,
+    .certificate-box {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-image img,
+    .certificate-image img {
+        min-height: 240px;
+        max-height: 420px;
+    }
+
+    .experience-text,
+    .certificate-text {
+        padding: 30px 24px 34px;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .activity-content {
+        padding: 23px 22px 27px;
+    }
+
+    .goal {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .goal h2 {
+        font-size: clamp(35px, 11vw, 52px);
+    }
+
+    footer {
+        padding-top: 55px;
+    }
+}
+
+/* =========================
+   VERY SMALL SCREENS
+========================= */
+
+@media (max-width: 400px) {
+    :root {
+        --page-pad: 16px;
+    }
+
+    .navbar nav {
+        gap: 3px 13px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .photo-frame {
+        padding: 9px;
+    }
+
+    .photo-frame::before {
+        inset: 9px -9px -9px 9px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
